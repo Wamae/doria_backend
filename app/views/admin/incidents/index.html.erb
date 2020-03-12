@@ -9,6 +9,7 @@
     <th>Location</th>
     <th>Description</th>
     <th>Status</th>
+    <th>Reporter</th>
     <th colspan="3"></th>
   </tr>
   </thead>
@@ -20,6 +21,7 @@
       <td><%=incident.location %></td>
       <td><%=incident.description %></td>
       <td><%=incident.status %></td>
+      <td><%= "#{incident.user.first_name} #{incident.user.last_name} #{incident.user.phone}" %></td>
       <td><%= link_to 'Show', incident %></td>
       <td><%= link_to 'Edit', edit_incident_path(incident) %></td>
       <td><%= link_to 'Destroy', incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,7 +29,3 @@
   <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Incident', new_incident_path %>

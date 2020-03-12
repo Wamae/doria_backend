@@ -1,4 +1,5 @@
-class IncidentTypesController < ApplicationController
+# module Admin
+class Admin::IIncidentTypesController < ApplicationController
   before_action :set_incident_type, only: [:show, :edit, :update, :destroy]
 
   # GET /incident_types
@@ -62,13 +63,15 @@ class IncidentTypesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_incident_type
-      @incident_type = IncidentType.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def incident_type_params
-      params.fetch(:incident_type, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_incident_type
+    @incident_type = IncidentType.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def incident_type_params
+    params.fetch(:incident_type, {})
+  end
 end
+# end

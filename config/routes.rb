@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :incidents
-  resources :incident_types
+  root to: 'incidents#index'
+
+  namespace :admin do
+    root to: 'incidents#index'
+    resources :incident_types
+    resources :incidents
+  end
 
   namespace :api do
     namespace :private do

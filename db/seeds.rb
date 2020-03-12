@@ -7,5 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 IncidentType.create!([{ name: 'Theft' }, { name: 'Rape' }, { name: 'Domestic Violence' }])
 Admin.create!(email: 'admin@doria.com', password: 'doria123', password_confirmation: 'doria123')
-User.create!(email: 'user@doria.com', phone: '0716690166', first_name: 'Jane', last_name: 'Doe',
+User.create!(email: 'user@doria.com', phone: '0712356456', first_name: 'Jane', last_name: 'Doe',
              password: 'doria123', password_confirmation: 'doria123')

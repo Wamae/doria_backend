@@ -1,33 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Incidents</h1>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+  <h1 class="h3 mb-2 text-gray-800">Incidents</h1>
 
-<table>
-  <thead>
-  <tr>
-    <th>Type</th>
-    <th>Location</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+        <tr>
+          <th>Type</th>
+          <th>Location</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th colspan="3"></th>
+        </tr>
+        </thead>
 
-  <tbody>
-  <% @incidents.each do |incident| %>
-    <tr>
-      <td><%=incident.incident_type.name %></td>
-      <td><%=incident.location %></td>
-      <td><%=incident.description %></td>
-      <td><%=incident.status %></td>
-      <td><%= link_to 'Show', incident %></td>
-      <td><%= link_to 'Edit', edit_incident_path(incident) %></td>
-      <td><%= link_to 'Destroy', incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+        <tbody>
+        <% @incidents.each do |incident| %>
+          <tr>
+            <td><%= incident.incident_type.name %></td>
+            <td><%= incident.location %></td>
+            <td><%= incident.description %></td>
+            <td><%= incident.status %></td>
+            <td><%= link_to 'Show', incident %></td>
+            <td><%= link_to 'Edit', edit_incident_path(incident) %></td>
+            <!--<td><%#= link_to 'Destroy', incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
 
+
+    <%= link_to 'New Incident', new_incident_path, class: "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" %>
+  </div>
+</div>
 <br>
 
-<%= link_to 'New Incident', new_incident_path %>

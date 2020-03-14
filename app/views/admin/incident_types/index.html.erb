@@ -15,8 +15,8 @@
       <tr>
         <td><%= incident_type.name %></td>
         <td><%= link_to 'Show', incident_type %></td>
-        <td><%= link_to 'Edit', edit_incident_type_path(incident_type) %></td>
-        <td><%= link_to 'Destroy', incident_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_admin_incident_type_path(incident_type) %></td>
+        <td><%= link_to 'Destroy', admin_incident_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Incident Type', new_incident_type_path %>
+<%= link_to 'New Incident Type', new_admin_incident_type_path %>

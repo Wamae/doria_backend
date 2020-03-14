@@ -1,7 +1,7 @@
 # module Admin
-class Admin::IIncidentTypesController < ApplicationController
+class Admin::IncidentTypesController < ApplicationController
   before_action :set_incident_type, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_admin!
 
   # GET /incident_types
   # GET /incident_types.json

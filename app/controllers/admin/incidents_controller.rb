@@ -1,7 +1,7 @@
 # module Admin
   class Admin::IncidentsController < ApplicationController
     before_action :set_incident, only: [:show, :edit, :update, :destroy]
-    before_action :authenticate_user!
+    before_action :authenticate_admin!
 
     # GET /incidents
     # GET /incidents.json

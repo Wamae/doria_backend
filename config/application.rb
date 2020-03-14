@@ -21,5 +21,13 @@ module Doria
         ENV[key.to_s] = value
       end if File.exists?(env_file)
     end
+
+    config.to_prepare do
+      # Configure single controller layout
+      Devise::SessionsController.layout "devise_custom"
+
+      # Or to configure mailer layout
+      Devise::Mailer.layout "email" # email.haml or email.erb
+    end
   end
 end

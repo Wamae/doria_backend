@@ -25,16 +25,12 @@
             <td><%= incident.description %></td>
             <td><%= incident.status %></td>
             <td><%= link_to 'Edit', edit_incident_path(incident) %></td>
-            <!--<td><%#= link_to 'Destroy', incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
           </tr>
         <% end %>
         </tbody>
       </table>
     </div>
-
-
     <%= link_to 'New Incident', new_incident_path, class: "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" %>
   </div>
 </div>
-<br>
 

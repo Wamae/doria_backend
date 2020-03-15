@@ -36,11 +36,13 @@ ActiveRecord::Schema.define(version: 2020_03_09_075622) do
   create_table "incidents", force: :cascade do |t|
     t.bigint "incident_type_id"
     t.bigint "user_id"
+    t.bigint "admin_id"
     t.text "description"
     t.string "location"
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["admin_id"], name: "index_incidents_on_admin_id"
     t.index ["incident_type_id"], name: "index_incidents_on_incident_type_id"
     t.index ["user_id"], name: "index_incidents_on_user_id"
   end
@@ -63,4 +65,5 @@ ActiveRecord::Schema.define(version: 2020_03_09_075622) do
 
   add_foreign_key "incidents", "incident_types"
   add_foreign_key "incidents", "users"
+  add_foreign_key "incidents", "users", column: "admin_id"
 end

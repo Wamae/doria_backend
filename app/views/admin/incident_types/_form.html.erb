@@ -1,6 +1,6 @@
-<%= form_with(model: incident_type, local: true) do |form| %>
+<%= form_with(url: admin_incident_types_path, model: incident_type, local: true) do |f| %>
   <% if incident_type.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(incident_type.errors.count, "error") %> prohibited this incident_type from being saved:</h2>
 
       <ul>
@@ -11,7 +11,20 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="card mb-4">
+    <div class="card-body">
+      <div class="form-group row">
+        <div class="col-sm-3 col-form-label">
+          <%= f.label :name %><br/>
+        </div>
+        <div class="col-sm-6">
+          <%= f.text_field :name, { class: "form-control form-control-user" } %>
+        </div>
+      </div>
+
+      <div class="actions form-group col-sm-6 offset-sm-3">
+        <%= f.submit nil, class: 'btn btn-primary btn-user btn-block col-sm-3 ' %>
+      </div>
+    </div>
   </div>
 <% end %>

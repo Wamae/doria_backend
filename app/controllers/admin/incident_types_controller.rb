@@ -30,7 +30,7 @@ class Admin::IncidentTypesController < ApplicationController
 
     respond_to do |format|
       if @incident_type.save
-        format.html { redirect_to @incident_type, notice: 'Incident type was successfully created.' }
+        format.html { redirect_to admin_incident_types_path, notice: 'Incident type was successfully created.' }
         format.json { render :show, status: :created, location: @incident_type }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class Admin::IncidentTypesController < ApplicationController
   def update
     respond_to do |format|
       if @incident_type.update(incident_type_params)
-        format.html { redirect_to @incident_type, notice: 'Incident type was successfully updated.' }
+        format.html { redirect_to admin_incident_types_path, notice: 'Incident type was successfully updated.' }
         format.json { render :show, status: :ok, location: @incident_type }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class Admin::IncidentTypesController < ApplicationController
   def destroy
     @incident_type.destroy
     respond_to do |format|
-      format.html { redirect_to incident_types_url, notice: 'Incident type was successfully destroyed.' }
+      format.html { redirect_to admin_incident_types_path, notice: 'Incident type was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -72,7 +72,6 @@ class Admin::IncidentTypesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def incident_type_params
-    params.fetch(:incident_type, {})
+    params.require(:incident_type).permit(:name)
   end
 end
-# end

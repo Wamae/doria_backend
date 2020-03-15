@@ -26,9 +26,7 @@
             <td><%= incident.description %></td>
             <td><%= incident.status %></td>
             <td><%= "#{incident.user.first_name} #{incident.user.last_name} #{incident.user.phone}" %></td>
-            <td><%= link_to 'Show', incident %></td>
-            <td><%= link_to 'Edit', edit_incident_path(incident) %></td>
-            <td><%= link_to 'Destroy', incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Edit', edit_admin_incident_path(incident) %></td>
           </tr>
         <% end %>
         </tbody>

@@ -15,6 +15,7 @@ class IncidentsController < ApplicationController
 
   # GET /incidents/new
   def new
+    @incident_types = IncidentType.all
     @incident = Incident.new
   end
 
@@ -25,7 +26,7 @@ class IncidentsController < ApplicationController
   # POST /incidents
   # POST /incidents.json
   def create
-    @incident = Incident.new(incident_params)
+    @incident = Incident.new(incident_params.merge!(user_id: current_user.id, status: 'Pending'))
 
     respond_to do |format|
       if @incident.save
@@ -63,13 +64,14 @@ class IncidentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_incident
-      @incident = Incident.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def incident_params
-      params.fetch(:incident, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_incident
+    @incident = Incident.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def incident_params
+    params.require(:incident).permit(:incident_type_id, :location, :description)
+  end
 end

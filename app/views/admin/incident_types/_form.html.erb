@@ -1,4 +1,4 @@
-<%= form_with(url: admin_incident_types_path, model: incident_type, local: true) do |f| %>
+<%= form_with(url: admin_incident_type_path, model: incident_type, local: true) do |f| %>
   <% if incident_type.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(incident_type.errors.count, "error") %> prohibited this incident_type from being saved:</h2>
